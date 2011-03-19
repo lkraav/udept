@@ -1,0 +1,108 @@
+# vim:set ts=4 sw=4 syn=sh:
+
+_dep_completion() {
+	local want_type="PNAME,PACKAGE" i j k t u
+	shopt -s extglob
+	for ((i=0; i<COMP_CWORD; ++i)); do case "${COMP_WORDS[$i]}" in
+		--exec )
+			COMPREPLY=(compgen 	-o bashdefault); return 0;;
+		-- )
+			break;;
+		--* )
+			for ((j=0; j<_dep_completion_shopt_count; ++j)); do
+				[[ "${COMP_WORDS[$i]}" == --${_dep_completion_shopt_long[$j]}?(=*) ]] || continue
+				[[ "${_dep_completion_shopt_type[$j]}" ]] && want_type=${_dep_completion_shopt_type[$j]}; break
+			done;;
+		[+-]* )
+			for ((j=1; j<${#COMP_WORDS[$i]}; ++j)); do
+				for ((k=0; k<_dep_completion_shopt_count; ++k)); do
+					[[ "${COMP_WORDS[$i]:$j:1}" == ${_dep_completion_shopt_short[$k]} ]] || continue
+					[[ "${_dep_completion_shopt_type[$k]}" ]] && want_type=${_dep_completion_shopt_type[$k]}; break
+				done
+			done;;
+	esac; done
+
+	case "${COMP_WORDS[$COMP_CWORD]}" in
+		-* ) want_type=OPTION;;
+		"" ) want_type=OPTION,$want_type;;
+	esac
+	
+	for t in ${want_type//,/ }; do case $t in
+		OPTION) 
+			for ((i=0; i<_dep_completion_shopt_count; ++i)); do
+				[[ --${_dep_completion_shopt_long[$i]}= == "${COMP_WORDS[$COMP_CWORD]%=*}"* ]] || continue
+				case ${_dep_completion_shopt_itype[$i]} in
+					NUMBER) COMPREPLY=("${COMPREPLY[@]}" --${_dep_completion_shopt_long[$i]} --${_dep_completion_shopt_long[$i]}= --${_dep_completion_shopt_long[$i]}=0);;
+					BINARY) COMPREPLY=("${COMPREPLY[@]}" --${_dep_completion_shopt_long[$i]} --${_dep_completion_shopt_long[$i]}=yes --${_dep_completion_shopt_long[$i]}=no);;
+					[[:lower:]]*) 
+						COMPREPLY=("${COMPREPLY[@]}" $(compgen -W "$(echo --${_dep_completion_shopt_long[$i]}; for u in ${_dep_completion_shopt_itype[$i]//,/ }; do echo --${_dep_completion_shopt_long[$i]}=$u; done)" -- "${COMP_WORDS[$COMP_CWORD]}"));;
+					*) COMPREPLY[${#COMPREPLY[@]}]="--${_dep_completion_shopt_long[$i]}";;
+				esac
+			done;;
+		PNAME)
+			COMPREPLY=("${COMPREPLY[@]}" $(dep --exec '
+	c="'"${COMP_WORDS[$COMP_CWORD]}"'"
+	if [[ "$c" == */* ]]; then 
+		for x in $portage_trees; do	for y in $x/$c*; do [[ -d "$y" ]] || continue; echo "${y#$x/}"; done; done
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; x=${x%-$VER_SHPAT}; echo ${x#/var/db/pkg/}; done	
+	else 
+		for x in $portage_trees; do for y in $x/*/$c*; do [[ -d "$y" ]] || continue; echo "${y##*/}"; done; done
+		for x in /var/db/pkg/*/$c*; do [[ -d "$x" ]] || continue; x=${x%-$VER_SHPAT}; echo ${x##*/}; done	
+	fi; exit 0'));;
+		PACKAGE) 
+			COMPREPLY=("${COMPREPLY[@]}" $(dep --exec '
+	c="'"${COMP_WORDS[$COMP_CWORD]}"'"; cn=${c%-$VER_SHPAT}
+	if [[ "$c" == */*-$VER_SHPAT ]]; then 
+		for x in $portage_trees; do for y in $x/$cn/${c#*/}*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; echo $cn-${y#${cn}-}; done; done
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; echo ${x#/var/db/pkg/}; done	
+	elif [[ "$c" == */* ]]; then 
+		for x in $portage_trees; do for y in $x/$cn*/${c#*/}*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; echo ${x#/var/db/pkg/}; done	
+	elif [[ "$c" == *-$VER_SHPAT ]]; then 
+		for x in $portage_trees; do for y in $x/*/$cn/$c*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/*/$c*; do [[ -d "$x" ]] || continue; echo ${x##*/}; done	
+	else 
+		for x in $portage_trees; do for y in $x/*/$cn*/$c*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/*/$c*; do [[ -d "$x" ]] || continue; echo ${x##*/}; done	
+	fi; exit 0'));;
+		CATEGORY) COMPREPLY=("${COMPREPLY[@]}" $(compgen -W "$(dep --exec 'echo $categories; exit 0')" -- "${COMP_WORDS[$COMP_CWORD]}"));;
+		XPACKAGE)
+			COMPREPLY=("${COMPREPLY[@]}" $(dep --exec '
+	c="'"${COMP_WORDS[$COMP_CWORD]}"'"; cn=${c%-$VER_SHPAT}
+	if [[ "$c" == */* ]]; then 
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; echo ${x#/var/db/pkg/}; done	
+	else 
+		for x in /var/db/pkg/*/$c*; do [[ -d "$x" ]] || continue; echo ${x##*/}; done	
+	fi; exit 0'));;
+		FILE) COMPREPLY=("${COMPREPLY[@]}" $(compgen -f -- "${COMP_WORDS[$COMP_CWORD]}"));;
+		DIRECTORY) COMPREPLY=("${COMPREPLY[@]}" $(compgen -d -- "${COMP_WORDS[$COMP_CWORD]}"));;
+		STRING) ;;
+		VIRTUAL)
+			COMPREPLY=("${COMPREPLY[@]}" $(dep --exec '
+	c="'"${COMP_WORDS[$COMP_CWORD]}"'"; cn=${c%-$VER_SHPAT}
+	if [[ "$c" == */*-$VER_SHPAT ]]; then 
+		for x in $portage_trees; do for y in $x/$cn/${c#*/}*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; echo $cn-${y#${cn}-}; done; done
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; echo ${x#/var/db/pkg/}; done	
+		allvirtuals | while read v; do [[ "$v" == "$cn" ]] && echo "$c"; done
+	elif [[ "$c" == */* ]]; then 
+		for x in $portage_trees; do for y in $x/$cn*/${c#*/}*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/$c*; do [[ -d "$x" ]] || continue; echo ${x#/var/db/pkg/}; done
+		allvirtuals | while read v; do [[ "$v" == "$c"* ]] && echo "$v"; done
+	elif [[ "$c" == *-$VER_SHPAT ]]; then 
+		for x in $portage_trees; do for y in $x/virtual/$cn/$c*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/virtual/$c*; do [[ -d "$x" ]] || continue; echo ${x##*/}; done
+		allvirtuals | while read v; do [[ "$v" == "virtual/$cn" ]] && echo "$c"; done
+	else 
+		for x in $portage_trees; do for y in $x/virtual/$cn*/$c*.ebuild; do [[ -e "$y" ]] || continue; y=${y%.ebuild}; y=${y#$x/}; echo ${y%%/*}/${y##*/}; done; done
+		for x in /var/db/pkg/virtual/$c*; do [[ -d "$x" ]] || continue; echo ${x##*/}; done	
+		allvirtuals | while read v; do [[ "$v" == "virtual/$c"* ]] && echo "${v#virtual/}"; done
+	fi; exit 0'));;
+		USE) COMPREPLY=("${COMPREPLY[@]}" $(dep --exec '
+	c="'"${COMP_WORDS[$COMP_CWORD]}"'"
+	cat $(profile_files_extra use.desc) $(profile_files_extra use.local.desc) \
+	| while read use rest; do [[ "${use##*:}" == "$c"* ]] && echo "${use##*:}"
+	done; exit 0'));;
+	esac; done
+}
+
+complete -F _dep_completion dep

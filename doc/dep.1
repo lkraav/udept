@@ -1,0 +1,221 @@
+.TH DEP 1 "2006-08-25" "udept 0.5.99.0.2.95" "Portage utilities"
+.SH NAME
+dep \- an inappropriate Portage engine
+.SH SYNOPSIS
+.B dep
+[\fIOPTION\fR]... [\fIACTION\fR | \fIINFO\fR-\fITYPE\fR [\fIPACKAGE\fR | \fIVIRTUAL\fR | \fIFILE\fR | \fIUSE\fR | \fICATEGORY\fR | \fIPATTERN\fR]...]
+.SH DESCRIPTION
+.PP
+List dependencies and reverse dependencies of packages, and clean the world file and the set of installed packages.
+.SH "OPTIONS SUMMARY"
+.PP 
+Here is a short summary of the options available in dep\&. Please refer
+to the detailed description below for a complete description\&.
+.PP
+Action selection:
+.nf
+      --usage        Display usage
+  -h, -?, --help     Display this help
+  -V, --version      Show version
+  -P, --purge        Unmerge unneeded SLOTted packages (of PACKAGE...)
+  -d, --depclean     Unmerge all unneeded packages (of PACKAGE...)
+  -w, --pruneworld   Remove redundant entries from the world file
+  -E, --filter-etc-portage Remove redundant entries from files in /etc/portage
+  -s, --spring-clean An incredibly slow recursive depclean
+  -O, --overlay-clean Identify unused ebuilds in an overlay
+.fi
+.PP
+Info types:
+.nf
+  -c, --category     Show category resolutions of PACKAGE
+  -C, --catpackages  Show packages in CATEGORY
+  -e, --versions     List versions of PACKAGE, with status
+  -f, --contents     List contents of PACKAGE
+  -F, --owners       List packages owning FILE
+  -g, --search       Search for packages matching PATTERN
+  -i, --info         Display PACKAGE info (HOMEPAGE, DESCRIPTION, etc.)
+  -j[num], --changelog[=num] Display Portage ChangeLog entries for PACKAGE
+  -k, --keywords     Show per-arch keyword status for PACKAGE
+  -l, --depends      (default) List dependencies of PACKAGE
+  -L, --rev-depends  List reverse dependencies of PACKAGE
+  -r, --provides     List virtuals PACKAGE provides
+  -R, --virtuals     List packages providing VIRTUAL
+  -S, --depstrings   Display the dependency strings for PACKAGE
+  -t, --tree-depends Display the full dependency tree for PACKAGE
+  -T, --reverse-tree Display the reverse dependency tree for PACKAGE
+  -u, --usedesc      Show USE flags and descriptions of PACKAGE
+  -U, --iuse         List packages that (say they) respect USE
+  -x, --exists       Show whether PACKAGE depends on later PACKAGEs
+  -X, --rev-exists   Show whether later PACKAGEs depend on PACKAGE
+  -z, --size         Display disk space used by PACKAGE
+.fi
+.PP
+Options: (--option=[yes,no] unless otherwise indicated)      (default)
+.nf
+  \(+-K, --colour[=yes,no,auto,html] Colour output                 (auto)
+  \(+-v[num], --verbose[=num] Verbosity level (cumulative) (1 console, 0 pipe)
+  \(+-1, --for-emerge Produce output suitable for emerge --oneshot   (no)
+  \(+-b, --build-time Include deps needed to build PACKAGE          (yes)
+  \(+-o, --original-depends Calculate deps as when PACKAGE was merged (no)
+  \(+-q, --unique-depends Show dependencies that only PACKAGE requires (no)
+  \(+-D[num], --depth[=num] Depth to follow dependency trees  (unlimited)
+  \(+-n, --uninstalled Include uninstalled packages in searches      (no)
+  \(+-a, --ask       For -[Pdw]: ask to perform action              (yes)
+  \(+-p, --pretend   For -[Pdw]: just show what would be done        (no)
+.fi
+.SH OPTIONS
+.TP
+\fB--usage\fR
+Display usage
+.TP
+\fB-h\fR, \fB-?\fR, \fB--help\fR
+Display this help
+.TP
+\fB-V\fR, \fB--version\fR
+Show version
+.TP
+\fB-P\fR, \fB--purge\fR
+Unmerge unneeded SLOTted packages (of PACKAGE...)
+.TP
+\fB-d\fR, \fB--depclean\fR
+Unmerge all unneeded packages (of PACKAGE...)
+.TP
+\fB-w\fR, \fB--pruneworld\fR
+Remove redundant entries from the world file
+.TP
+\fB-E\fR, \fB--filter-etc-portage\fR
+Remove redundant entries from files in /etc/portage
+.TP
+\fB-s\fR, \fB--spring-clean\fR
+An incredibly slow recursive depclean
+.TP
+\fB-O\fR, \fB--overlay-clean\fR
+Identify unused ebuilds in an overlay
+.TP
+\fB-c\fR, \fB--category\fR
+Show category resolutions of PACKAGE
+.TP
+\fB-C\fR, \fB--catpackages\fR
+Show packages in CATEGORY
+.TP
+\fB-e\fR, \fB--versions\fR
+List versions of PACKAGE, with status
+.TP
+\fB-f\fR, \fB--contents\fR
+List contents of PACKAGE
+.TP
+\fB-F\fR, \fB--owners\fR
+List packages owning FILE
+.TP
+\fB-g\fR, \fB--search\fR
+Search for packages matching PATTERN
+.TP
+\fB-i\fR, \fB--info\fR
+Display PACKAGE info (HOMEPAGE, DESCRIPTION, etc.)
+.TP
+\fB-j[num]\fR, \fB--changelog[=num]\fR
+Display Portage ChangeLog entries for PACKAGE
+.TP
+\fB-k\fR, \fB--keywords\fR
+Show per-arch keyword status for PACKAGE
+.TP
+\fB-l\fR, \fB--depends\fR
+(default) List dependencies of PACKAGE
+.TP
+\fB-L\fR, \fB--rev-depends\fR
+List reverse dependencies of PACKAGE
+.TP
+\fB-r\fR, \fB--provides\fR
+List virtuals PACKAGE provides
+.TP
+\fB-R\fR, \fB--virtuals\fR
+List packages providing VIRTUAL
+.TP
+\fB-S\fR, \fB--depstrings\fR
+Display the dependency strings for PACKAGE
+.TP
+\fB-t\fR, \fB--tree-depends\fR
+Display the full dependency tree for PACKAGE
+.TP
+\fB-T\fR, \fB--reverse-tree\fR
+Display the reverse dependency tree for PACKAGE
+.TP
+\fB-u\fR, \fB--usedesc\fR
+Show USE flags and descriptions of PACKAGE
+.TP
+\fB-U\fR, \fB--iuse\fR
+List packages that (say they) respect USE
+.TP
+\fB-x\fR, \fB--exists\fR
+Show whether PACKAGE depends on later PACKAGEs
+.TP
+\fB-X\fR, \fB--rev-exists\fR
+Show whether later PACKAGEs depend on PACKAGE
+.TP
+\fB-z\fR, \fB--size\fR
+Display disk space used by PACKAGE
+.TP
+\fB\(+-K\fR, \fB--colour[=yes,no,auto,html]\fR
+Colour output (default: auto)
+.TP
+\fB\(+-v[num]\fR, \fB--verbose[=num]\fR
+Verbosity level (cumulative) (default: 1 console, 0 pipe)
+.TP
+\fB\(+-1\fR, \fB--for-emerge\fR
+Produce output suitable for emerge --oneshot (default: no)
+.TP
+\fB\(+-b\fR, \fB--build-time\fR
+Include deps needed to build PACKAGE (default: yes)
+.TP
+\fB\(+-o\fR, \fB--original-depends\fR
+Calculate deps as when PACKAGE was merged (default: no)
+.TP
+\fB\(+-q\fR, \fB--unique-depends\fR
+Show dependencies that only PACKAGE requires (default: no)
+.TP
+\fB\(+-D[num]\fR, \fB--depth[=num]\fR
+Depth to follow dependency trees (default: unlimited)
+.TP
+\fB\(+-n\fR, \fB--uninstalled\fR
+Include uninstalled packages in searches (default: no)
+.TP
+\fB\(+-a\fR, \fB--ask\fR
+For -[Pdw]: ask to perform action (default: yes)
+.TP
+\fB\(+-p\fR, \fB--pretend\fR
+For -[Pdw]: just show what would be done (default: no)
+.PP
+A package is unneeded if there is no installed package that depends on it. As a special case, the running kernel's sources are needed.
+
+A world file entry is redundant if there is another installed package that depends on it. When merging the new world file, the merging program used is sdiff(1). Your world file is located at /var/lib/portage/world.
+
+Spring-clean will help find large sets of unneeded packages and orphaned circular dependency loops.
+
+Env vars - USE, ACCEPT_KEYWORDS, etc., can be used to override /etc/make.conf.
+.SH EXAMPLES
+.TP
+dep \-e portage
+List versions of sys-apps/portage.
+.TP
+dep -Ln python
+Display installed and uninstalled packages that depend on python.
+.SH FILES
+.PP
+/var/db/pkg
+/var/cache/edb/dep
+/etc/make.conf
+/etc/make.profile
+.SH "SEE ALSO"
+.PP
+portage(5), equery(1)
+.SH AUTHOR
+Written by Ed Catmur.
+.SH "REPORTING BUGS"
+Report bugs at <http://bugs\&.catmur\&.co\&.uk/>, product udept. Check 
+<http://catmur\&.co\&.uk/gentoo/udept/> for updates and more information.
+.SH COPYRIGHT
+Copyright \(co 2006 Ed Catmur.
+.br
+This is free software.  You may redistribute copies of it under the terms of
+the GNU General Public License <http://www\&.gnu\&.org/licenses/gpl\&.html>.
+There is NO WARRANTY, to the extent permitted by law.

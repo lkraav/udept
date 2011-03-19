@@ -1,0 +1,230 @@
+	* reorder additive USE vars: place higher priority later
+	* make get_mask_comment display multiple masks
+	* fix mask removal in get_mask_comment
+
+0.5.9 "Not Down With That" (20060124)
+
+	* make extract_var_from_vardb cope with missing files
+	* fixes to fmt_w
+	* show /etc/portage/patches in otherinfo (huh?)
+	* exclude /usr/src/debug from contents
+	* fix alluse to cope with USE="foo blah blah -foo"
+	* break version comparison code to match portage
+	* revert that change, it's been fixed in shadow and breaks older shadow
+	* use su -- -c to work with shadow 4.0.14 (stricter getopts)
+	* add --changelog=entries selector
+	* make listowners give output_for_emerge output
+	* allow titlebar update in redundant
+
+0.5.8 "And Let The Sun Inside" (20051218)
+
+	* portage 2.1 edb support (hackish for now)
+	* preliminary dot format support (dot_depgraph)
+
+0.5.7 "Also, Add More Snow" (20051217)
+
+	* correctly forward-resolve new-style virtuals
+	* make listver prioritise trees correctly
+	* hackery: alluse before resdepend, for xterm title
+	* -1, --for-emerge: output_for_emerge
+
+0.5.6 "I'm A Stranger Here Myself" (20051215)
+
+	* make !!! in use_desc stdout not stderr
+	* get _smartdep_nopv behaving wrt bailing with exclude (virtuals)
+	* use sha1sum in memoise to generate in-length filenames when necessary
+	* make treedep :>$temp_dir/required
+	* add package.mask checking to showkw
+	* make depexists cope with blockers
+	* trap SIGPIPE in allvirtuals and memoise
+
+0.5.5 "Take Extra Special Care"
+
+	* make potential_revdepends respect (unset) original_depends
+	* make format_taint (and listrawdep, etc.) package.use-aware
+	* make pkg_glob glob *foo* on foo w/o wildcards
+	* add show_tree to fix avail_versions refactor break
+
+0.5.4 "Again And Again And Again And Again And Again And Again"
+
+	* make best_tree flexible on masked packages
+	* fix usages of format_error without >&2
+	* make star_arg cope with keyword/masked packages
+	* refactor avail_versions
+	* make --exec show RESULT
+	* add non-colour-dependent installed/arch indicator to showkw
+	* make potential_revdepends work with depstrings lacking whitespace
+	* fix expand_arg for pv_to_cpv
+
+0.5.3 "Turn Out The Lights"
+
+	* fix purge/depclean to use ${args[@]}
+	* add uninstalled support to listvirtuals
+	* fix changelog to require non-* line before halt
+	* simplify memoise with PIPESTATUS
+
+0.5.2 "Sweet Zombie Jesus"
+
+	* add keywords infotype
+	* fix listiuse for whole USE flags
+	* fix changelog format sed for no name
+	* mod changelog to require higher ver before lower - who knows?
+	* make -g glob * on empty argv
+	* redo optargs, some switch changes
+	* improve html output, add html_wrap
+	* make memoise use tee
+	* fix pkg_glob for failed glob
+	* get unique_depends working for listdep
+	* add changelog infotype
+	* fix rtnode for empty smartdep
+	* make rtnode only display first world resolution for filter_world
+	* fix memoise (local variables)
+
+0.5.1 "I'm Sure It's As Beautiful As It Looks On The Screen"
+
+	* add dex and rex infotypes
+	* make memoise a function
+	* make resolve_depatom memoization more race-proof
+	* switch argv_dep/expand_arg/star_arg to use RESULT pattern
+	* fix dep optargs parsing
+	* make rtnode silent for filter_world
+
+0.5.0 "Not In My Food"
+
+	* make filter_world ignore circular reverse dependencies
+	* some internal cleanup
+	* add revtree infotype
+	* fix format_depatom for * system lines
+	* improve || deps in filter_world handling
+
+0.4.8 "Spelled Without An 'H'"
+
+	* fix sed wart in help_fmt: sed breaks for [ in character classes
+	* fix docubug: force -> y
+	* fix a possible sed wart in help_fmt, format --zat=[foo,bar,baz]
+	* speedup: don't load config for own|iuse|glob infotypes; own is now 
+	  just 0.050s slower than qpkg -f (mostly memoization overhead)!
+	* handle --exec in getopts
+	* refactor configuration loading
+	* add glob infotype
+	* html output, hehe.
+	* revamp getopts logic, is now GNU standard (yay!)
+	* make listowners show matches for non-absolute searches
+	* add category infotypes
+	* arg changes: contents/owners -> fF, force -> y
+
+0.4.7 "Except The Weasel"
+
+	* refactor argv_dep
+	* add iuse infotype
+	* switch around argument flags for consistency
+	* make fmt_w ignore indent when breaking very long words
+	* make fmt_w cope with unterminated last line
+	* make use_desc give an error if no desc available
+	* add "cvs." prefix to version patterns (portage 2.1)
+
+0.4.6 "So Farewell Then"
+
+	* add some more xterm title lines
+	* ignore || deps in filter_world - yucky but it works??!?!!??!!
+	* make --exec use "$@" (sensibleness with empty/quoted args)
+	* clean up VER_REGEXP
+
+0.4.5 "The Certainty Of Chance"
+
+	* add indent support to fmt_w
+	* add displayuse infotype
+	* add otherinfo infotype
+	* break and fix COLUMNS sanitisation
+	* fix keywords_for for missing ebuild
+	* speed up settings grabbing with an all-in-one non-sourcing solution
+	* time dep --exec is down to 0.232/0.116/0.096 - can we make it faster?
+	* use categories file for pv_to_cpv
+
+0.4.4.1 "Butter Your Bacon"
+
+	* make cd_already_installed give correct return value
+	* fix cd_already_installed to actually work (call resolve_depatom)
+
+0.4.4 "Accursed Recursion"
+
+	* change <() to | where possible (bash failing to free pipes)
+	* use short-circuit while...done < <() in resolve_depatom and elsewhere
+	* formalise crunch_depends and handle complex ||-lists
+	* cease handling "?:" depend form; it's been deprecated for ages and
+	  makes the parser a lot more complicated
+	* split out crunch_depends
+	* add time to --exec
+	* optimise get_contingent_virtuals
+	* add --uninstalled-revdeps option
+
+0.4.3 "Something I Said"
+
+	* use vardb properly, eliminate complete_cache ick
+	* fix weird-as expansion of [[:lower:]] bug
+	* fix keyword_sym to try for " " ahead of "~", "-"
+	* fix listowners for symlinks
+	* make listver prioritise trees correctly
+	* make method_sort stable
+	* make get_mask_comment print offending maskfile when not /usr/portage
+	* rewrite method_sort to use bash arrays; now handles whitespace better
+	* profile_files_extra: take e.g. package.mask from trees as well
+	* display keywords on keyword masked packages
+	* fix package.mask handling for =CATEGORY/PN-PV*
+	* don't sort in get_contingent_virtuals, this makes it compatible with
+	  portage.py treeVirtuals
+	* make listowners canonicalize paths
+	* make monochrome when output is not to a terminal
+	* fix listowners for previous fix (ack!)
+	* use find -L (follow symlinks) in trees
+	* fix listowners to find just file name (not postfix!)
+	* trap SIGPIPE in get_mask_comment
+	* fix get_mask_comment across maskfile boundaries
+	* fix package-specific prune/depclean
+	* fix dbuse for multiple package.use flags
+	* add pkgsize: package disk usage
+	* rewrite argv_dep to be better and complain properly
+	* fix package.keywords "arch" behaviour
+	* add USE_EXPAND use flags
+	* add --unique-depends
+	* fix --original-depends
+	* make sure installed and injected versions show up in listver
+	* make the correct installed tree be shown in listver
+	* highlight missing ebuilds in listver
+	* display masking comments in listver
+	* fixes for version-match and contingent virtuals
+
+0.4.2 "Return To Planet X"
+
+	* listver(): (-e, --versions) replacement for etcat -v
+	* support functions thereto
+
+0.4.1 "Doritos"
+
+	* cope with whitespace missing from depstrings
+	* fix for findutils-4.2.18 POSIX strictness (thanks 
+	  metal_leper@hotmail.com)
+	* fix virtual resolution
+	* some memoization - more needed
+	* USE-contingent virtuals
+	* xterm title progress hints
+	* some small speedups
+	* fix broken pipe (ditto)
+	* fix package.provided stall in kill_comments_and_blanks
+
+0.4.00 "Skull Panda Loves Kitties"
+
+	* handle package.provided
+	* usemask, alluse: (possibly) handle use.mask (needs testing)
+	* add --tree-depends info type
+	* add_dep_to_required(): colourify spring-clean, list depstrings
+	* installed_mlsrs(): add $remove_masked option
+	* is_package_masked(): fix not-returning-from-pipeline troubles
+	* profile_files(): switch to use inherited profiles (portage 2.0.51)
+
+0.3.07 "Chocolate Salty Balls"
+
+	* lost in the mists of time
+
+0.3.00 "Level Of Incompetence" (20040228)
+

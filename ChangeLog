@@ -1,0 +1,724 @@
+2006-08-25 17:39  ed
+
+	* completion/Makefile.am, configure.ac, packaging/udept.ebuild.in,
+	  www/ChangeLog: completion USE flag in ebuild
+
+2006-08-25 17:25  ed
+
+	* Makefile.am, configure.ac, packaging/Makefile.am, www/ChangeLog:
+	  Release 0.5.99.0.2.94 "Apparently, It's Not Supposed To Look
+	  Like That"
+
+2006-08-25 17:23  ed
+
+	* Makefile.am, completion/Makefile.am, configure.ac,
+	  packaging/Makefile.am, www/ChangeLog: Release 0.5.99.0.2.93
+	  "Putting Words Into My Mouth"
+
+2006-08-25 17:00  ed
+
+	* completion/Makefile.am, configure.ac, www/ChangeLog: Release
+	  0.5.99.0.2.92 "And Other Euphemistic Non-Swearwords"
+
+2006-08-25 16:56  ed
+
+	* Makefile.am, completion, completion/Makefile.am,
+	  completion/dep.completion.in, configure.ac, src/Makefile.am,
+	  src/dep.completion.in, www/ChangeLog: Release 0.5.99.0.2.91
+	  "Quoting Rules Get Me Down, You Know?"
+
+2006-08-25 16:38  ed
+
+	* Makefile.am, configure.ac, dist, packaging, www/ChangeLog:
+	  Release 0.5.99.0.2 "Bruce Schneier Never Cries"
+
+2006-08-25 16:30  ed
+
+	* www/ChangeLog: Release 0.5.99.0.1 "Short And Sweet"
+
+2006-08-25 16:30  ed
+
+	* Makefile.am, configure.ac, src/Makefile.am, src/dep, src/dep.in,
+	  www/ChangeLog: Release 0.5.99.0.1 "Short And Sweet"
+
+2006-08-25 15:54  ed
+
+	* Makefile.am, www/ChangeLog: Release 0.5.96.2 "Possibly A Swamp"
+
+2006-08-25 15:51  ed
+
+	* Makefile.am, doc/Makefile.am, src/Makefile.am, src/dep,
+	  www/ChangeLog: Release 0.5.96.2 "Possibly A Swamp"
+
+2006-08-25 14:32  ed
+
+	* configure.ac: Release 0.5.96.2 "@PACKAGE_TAG"
+
+2006-08-25 14:30  ed
+
+	* configure.ac, src/Makefile.am, www/ChangeLog: build fixes
+
+2006-08-25 14:26  ed
+
+	* src/dep: Release 0.5.96.2 "@PACKAGE_TAG"
+
+2006-08-25 14:25  ed
+
+	* Makefile.am, doc/Makefile.am, src/Makefile.am: blah
+
+2006-08-25 14:23  ed
+
+	* doc/Makefile.in, src/Makefile.in: oops
+
+2006-08-25 14:23  ed
+
+	* AUTHORS, COPYING, INSTALL, NEWS, README, aclocal.m4,
+	  doc/Makefile.in, install-sh, missing, src/Makefile.in: ditto
+
+2006-08-25 14:21  ed
+
+	* Makefile.am, configure.ac, doc/Makefile.am, doc/depman.sh,
+	  local.mak, src/Makefile.am: autotoolage
+
+2006-08-25 11:55  ed
+
+	* Makefile, local.mak: more
+
+2006-08-25 11:55  ed
+
+	* src/dep.completion.in, util: moves
+
+2006-08-25 11:53  ed
+
+	* dep, dep.completion.in, depman.sh, dist, dist/udept.ebuild.in,
+	  doc, doc/depman.sh, src, src/dep, udept.ebuild.in, util,
+	  util/dep.completion.in: autotooling
+
+2006-08-25 07:49  ed
+
+	* dep: oops
+
+2006-08-25 07:27  ed
+
+	* dep: db_grep speedups
+
+2006-08-17 03:07  ed
+
+	* www/index.html, www/index.html.in: fix manpage link
+
+2006-08-12 16:32  ed
+
+	* metadata.dtd, metadata.xsl: rm metadata xml stuff (we hand-parse)
+
+2006-08-12 16:19  ed
+
+	* dep: ditch old compatibility code
+
+2006-08-10 04:13  ed
+
+	* dep: clear superseded warning flag in _smartdep from rtnode
+	  (reverse tree depends) (Jkay @ Gentoo forums)
+
+2006-08-07 17:18  ed
+
+	* www/index.html, www/index.html.in: prettify web page
+
+2006-08-07 16:47  ed
+
+	* depman.sh, www/index.html, www/index.html.in: reporting bugs
+
+2006-08-07 16:40  ed
+
+	* Makefile: copy ChangeLog to www
+
+2006-08-07 16:38  ed
+
+	* www/ChangeLog, www/index.html, www/index.html.in: add ChangeLog
+
+2006-08-07 16:01  ed
+
+	* Makefile: Release 0.5.96.2 "Possibly A Swamp"
+
+2006-08-07 15:59  ed
+
+	* www/index.html, www/index.html.in: and again
+
+2006-08-07 15:59  ed
+
+	* www/help.html, www/index.html, www/index.html.in: vim icon
+
+2006-08-07 15:29  ed
+
+	* Makefile: Release 0.5.96.2 "Possibly A Swamp"
+
+2006-08-07 15:21  ed
+
+	* Makefile, dep: Release 0.5.96.2 "Possibly A Swamp"
+
+2006-08-07 15:21  ed
+
+	* Makefile: make dist fixes
+
+2006-08-07 15:11  ed
+
+	* Makefile, dep: Release 0.5.96.1 "Robots Cannot Be Evil"
+
+2006-08-07 15:08  ed
+
+	* Makefile, udept.ebuild.in: more make dist - should be fully
+	  automated now
+
+2006-08-07 14:53  ed
+
+	* Makefile: make dist changes
+
+2006-08-07 14:44  ed
+
+	* www/example1.html, www/example2.html: update examples to 0.5.96
+
+2006-08-07 13:34  ed
+
+	* www/help.html, www/index.html: bump
+
+2006-08-07 13:28  ed
+
+	* Makefile, dep: Release 0.5.96 "Left At Lights"
+
+2006-08-07 00:42  ed
+
+	* dep: split out resolve_depatom inner functions. ftw.
+
+2006-08-07 00:00  ed
+
+	* dep: trap broken pipe in allvirtuals
+
+2006-08-06 23:50  ed
+
+	* dep: package.use.mask support
+	  (and fix a bug in usecomponent: multiple USE flags on a
+	  package.use line)
+
+2006-08-06 23:34  ed
+
+	* dep: remove auto from default USE_ORDER (as portage)
+
+2006-08-06 23:28  ed
+
+	* dep: split out edb grep logic; fix to cut down on !!! failed
+	  extract_var DEPEND warnings
+
+2006-08-04 14:01  ed
+
+	* dep: get conf USE correct (don't tac)
+
+2006-08-03 19:37  ed
+
+	* dep: oops
+
+2006-08-03 02:33  ed
+
+	* dep: typo
+
+2006-08-03 02:33  ed
+
+	* dep: make command-line USE stack properly (USE_ORDER etc)
+
+2006-08-03 01:45  ed
+
+	* dep: code duplication
+
+2006-08-03 01:40  ed
+
+	* dep: recursive /etc fixes
+
+2006-08-02 03:14  ed
+
+	* dep: usedesc fixes
+
+2006-08-02 02:18  ed
+
+	* www/index.html, www/index.html.in: link fix
+
+2006-08-02 02:16  ed
+
+	* www/help.html, www/index.html, www/index.html.in: update
+
+2006-08-02 01:56  ed
+
+	* www, www/Makefile, www/example1.html, www/example2.html,
+	  www/help.html, www/index.html, www/index.html.in: add www
+
+2006-07-28 09:43  ed
+
+	* dep: handle /etc/portage/* directories hopefully everywhere
+
+2006-07-28 09:22  ed
+
+	* dep: shlex source statements in /etc/make.conf etc
+	  handle directories in /etc/portage cleaner
+
+2006-06-26 00:48  ed
+
+	* dep: make iconv shut up
+
+2006-06-24 12:57  ed
+
+	* dep: make makeideal comm clearer
+
+2006-06-15 15:44  ed
+
+	* dep: set EBUILD_PHASE="depend"
+
+2006-06-15 03:09  ed
+
+	* Makefile, dep: Release 0.5.95.2 "Strange And Complex Entities"
+
+2006-06-15 03:09  ed
+
+	* dep: 3rd time lucky?
+
+2006-06-15 02:49  ed
+
+	* Makefile, dep: Release 0.5.95.1 "One Good Reason"
+
+2006-06-15 02:48  ed
+
+	* dep: aagh
+
+2006-06-14 16:49  ed
+
+	* Makefile, dep: Release 0.5.95 "Positively Primitive"
+
+2006-06-14 16:46  ed
+
+	* dep: fix accept_for for no package.keywords
+	  (slycordinator@forums.gentoo.org)
+
+2006-06-14 00:51  ed
+
+	* dep: judicious grep to speed up maskfile/inclusion mask handling
+
+2006-06-13 04:30  ed
+
+	* dep: fix bash 'while read' weirdness
+
+2006-06-12 18:52  ed
+
+	* dep: strip initial 0s from _alpha version suffices in comparison
+	  (slycordinator@forums.gentoo.org)
+
+2006-06-12 18:35  ed
+
+	* dep: use byte sequence for iconv input
+	  (bigmauler@forums.gentoo.org)
+
+2006-06-09 09:05  ed
+
+	* Makefile, dep: Release 0.5.94.1 "One Trick Pony"
+
+2006-06-09 09:03  ed
+
+	* dep: add bare ±D opts
+	  make --for-emerge apply to --*tree* forms
+
+2006-06-07 14:17  ed
+
+	* Makefile, dep: Release 0.5.94 "We Had An Agreement"
+
+2006-06-07 14:00  ed
+
+	* dep: --depth args to tree forms
+
+2006-06-07 13:45  ed
+
+	* dep: improve numeric shopt handling
+	  add depth arg (unused)
+
+2006-05-20 22:25  ed
+
+	* dep: improve moved package handling
+
+2006-05-12 10:53  ed
+
+	* Makefile, dep: Release 0.5.93.1 "Revenge Will Surely Come"
+
+2006-05-12 10:45  ed
+
+	* dep: fix USE exponential blowout
+
+2006-05-12 10:07  ed
+
+	* dep: Release 0.5.93 "Just Like Pro Wrestling, Only Fake"
+
+2006-05-12 10:06  ed
+
+	* Makefile: prep for release
+
+2006-05-12 10:06  ed
+
+	* dep: finish overlay_clean
+
+2006-05-11 03:40  ed
+
+	* dep: prelimin'ry overlay-clean scaffolding
+
+2006-05-11 03:05  ed
+
+	* dep.completion.in: add directory shopt type
+
+2006-05-10 23:48  ed
+
+	* dep: bashrc filter + supporting code
+
+2006-05-10 12:43  ed
+
+	* dep: improve output
+
+2006-05-10 12:25  ed
+
+	* dep: filter_etc_portage goes gold
+
+2006-05-10 12:24  ed
+
+	* dep: add log_message function; filter profile/packages
+
+2006-05-10 12:06  ed
+
+	* dep: message change
+
+2006-05-10 12:04  ed
+
+	* dep: make ACCEPT_KEYWORDS an array
+
+2006-05-10 11:21  ed
+
+	* dep: get argument order right!
+
+2006-05-10 11:14  ed
+
+	* dep: add package.keywords filter, split out some common code
+	  into package_star_filter
+
+2006-05-10 08:38  ed
+
+	* dep: add package.unmask filter
+
+2006-05-10 08:30  ed
+
+	* dep: improve verbosity on package.mask filter
+
+2006-05-10 08:09  ed
+
+	* dep: finish package.mask filter
+
+2006-05-10 07:39  ed
+
+	* dep: improve whitespace handling by using blank read (REPLY)
+
+2006-05-10 07:33  ed
+
+	* dep: begin package.mask filter (negatives)
+
+2006-05-10 07:20  ed
+
+	* dep: improve inline comments handling
+
+2006-05-10 07:12  ed
+
+	* dep: improve formatting
+
+2006-05-10 07:09  ed
+
+	* dep: memoise retval
+
+2006-05-10 07:09  ed
+
+	* dep: package.use filter
+
+2006-05-10 06:28  ed
+
+	* dep: multifilter updates
+
+2006-04-19 01:59  ed
+
+	* dep: minor speedups
+
+2006-04-17 23:17  ed
+
+	* dep, depman.sh: use Â± if possible
+
+2006-04-17 22:47  ed
+
+	* dep: test $0 before executing short-circuit options (to allow
+	  sourcing)
+
+2006-04-12 21:08  ed
+
+	* Makefile, dep: Release 0.5.92.1 "Remember The Name On Your
+	  Passport"
+
+2006-04-12 20:33  ed
+
+	* dep: fix accept_for and keyword_for to use RESULT idiom;
+	  necessary to avoid wildcard
+	  expansion by array reference return.
+
+2006-04-12 19:41  ed
+
+	* dep: preliminary keyword * fixes
+
+2006-04-12 00:21  ed
+
+	* dep: Release 0.5.92 "So Nicely Fit Together"
+
+2006-04-12 00:20  ed
+
+	* Makefile: release 0.5.92
+
+2006-04-12 00:20  ed
+
+	* dep: vercmp(): higher-level version comparator
+	  fixes to _smartdep
+	  various cleanup
+
+2006-03-28 19:53  ed
+
+	* dep, metadata.dtd, metadata.xsl: add metadata parsing (herd,
+	  email)
+
+2006-03-26 14:41  ed
+
+	* dep: don't look for logs if not installed
+
+2006-03-26 14:19  ed
+
+	* dep: add logs to info
+
+2006-03-26 06:59  ed
+
+	* dep: fix virtual calculation code to portage 2.1_pre6
+
+2006-03-24 00:42  ed
+
+	* dep: INJECTED fixes to versions code
+
+2006-03-23 11:05  ed
+
+	* Makefile: add tag to release checkin comment
+
+2006-03-23 11:03  ed
+
+	* Makefile, dep: Release 0.5.91.2
+
+2006-03-23 11:03  ed
+
+	* dep: get shopt working for -s
+
+2006-03-22 16:58  ed
+
+	* Makefile, dep: Release 0.5.91.1
+
+2006-03-22 16:56  ed
+
+	* Makefile, dep: Release 0.5.91
+
+2006-03-22 13:27  ed
+
+	* Makefile: remember to svn up before svn2cl
+
+2006-03-22 13:22  ed
+
+	* dep: verbose support in add_deps_to_required
+
+2006-03-20 23:45  ed
+
+	* .: remove ChangeLog from vc & ignore it
+
+2006-03-20 23:43  ed
+
+	* ChangeLog: rm ChangeLog from vc; it's autogenned
+
+2006-03-20 23:42  ed
+
+	* Makefile: make dist improvements (ChangeLog etc.)
+
+2006-03-20 23:36  ed
+
+	* dep: injected handling in info_action_keywords
+
+2006-03-20 23:24  ed
+
+	* dep: get extract_var_from_vardb right!
+
+2006-03-20 23:23  ed
+
+	* dep: move environment.bz2 hackery to extract_var_from_vardb
+
+2006-03-20 12:53  ed
+
+	* depman.sh: man page updates
+
+2006-03-19 11:05  ed
+
+	* ., Makefile: make dist target
+
+2006-03-19 10:45  ed
+
+	* dep: verbump
+
+2006-03-19 10:32  ed
+
+	* .: ignores
+
+2006-03-19 10:28  ed
+
+	* Makefile, dep.completion.in, depman.sh: documentation +
+	  completion, baby
+
+2006-03-19 10:27  ed
+
+	* dep: minor fixes
+
+2006-03-19 07:21  ed
+
+	* dep: move docs up
+
+2006-03-19 06:39  ed
+
+	* dep: shove end stuff into main
+
+2006-03-19 05:31  ed
+
+	* dep: minor reorg
+
+2006-03-19 05:11  ed
+
+	* dep: major reorg. formalise command line options, move stuff
+	  around.
+
+2006-03-19 01:20  ed
+
+	* dep: change category-packages to catpackages; reindent
+
+2006-03-19 01:13  ed
+
+	* dep: standardise category infotype; help_fmt improvements
+
+2006-03-18 15:25  ed
+
+	* dep: make showkw and listver use same mlsr/tree sort code
+
+2006-03-03 09:16  ed
+
+	* dep: improve listiuse
+
+2006-03-01 08:18  ed
+
+	* dep: link name to version for rev dot depgraphs
+
+2006-03-01 08:00  ed
+
+	* dep: more dot depgraph improvements
+
+2006-03-01 07:55  ed
+
+	* dep: list remaining option letters
+	  improve dot depgraph functionality
+
+2006-02-27 11:34  ed
+
+	* dep: release version 0.5.10
+
+2006-02-27 11:30  ed
+
+	* dep: support USE="-*", hopefully
+
+2006-02-27 06:21  ed
+
+	* dep: minor prettification
+
+2006-02-26 06:42  ed
+
+	* dep: fix --unique-depends warning
+
+2006-02-26 06:05  ed
+
+	* dep: Export PORTDIR_OVERLAY to ebuild.sh to allow location of
+	  eclasses
+
+2006-02-14 20:58  ed
+
+	* dep: really fix float comparison
+
+2006-02-14 20:49  ed
+
+	* ChangeLog, dep: fix float comparison code
+
+2006-02-14 20:37  ed
+
+	* dep: adjust otherinfo patches for latest portage-patches
+	  wildcard code
+
+2006-02-14 00:03  ed
+
+	* dep: compare 0x version components as floats. Yup.
+
+2006-02-13 23:43  ed
+
+	* dep: add_deps_to_required: check null return from resolve_depatom
+
+2006-02-12 17:09  ed
+
+	* ChangeLog, ChangeLog.20060126: add to repo
+
+2006-02-12 17:08  ed
+
+	* dep: don't bail in resolve_depatom on new-style virtuals (TODO
+	  check correct)
+
+2006-02-12 07:25  ed
+
+	* dep: add edb_tree() to help with deleted ebuilds leaving behind
+	  edb stuff
+
+2006-02-12 07:19  ed
+
+	* dep: delete unused best_tree_cpv
+
+2006-02-12 07:15  ed
+
+	* dep: fix that last
+
+2006-02-12 07:13  ed
+
+	* dep: make extract_var fallback to PORTDIR
+
+2006-02-11 17:46  ed
+
+	* dep: add gnome-terminal TERM=gnome support
+
+2006-02-11 03:22  ed
+
+	* dep: test change
+
+2006-02-04 22:09  ed
+
+	* dep: make -j take a numeric argument, change tab width
+
+2006-01-29 10:42  ed
+
+	* dep: Hive off ChangeLog into ChangeLog.20060126 and svn log (use
+	  svn2cl)
+
+2006-01-29 09:51  ed
+
+	* dep: preliminary USE_ORDER support
+
+2006-01-27 06:48  ed
+
+	* dep: Test change
+
+2006-01-27 03:17  ed
+
+	* ., dep: Initial commit.
+
